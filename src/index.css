@@ -3,31 +3,17 @@
 
 
 @font-face {
-    font-family:'big' ;
-    src: url('src/assets/Brockmann-Regular-CFBdZhjj.ttf');
+    font-family: 'big';
+    src: url('src/assets/Brockmann-Regular-CFBdZhjj.ttf') format('truetype');
+   
 }
 
-@font-face {
-    font-family:'unique' ;
-    src: url('src/assets/nothing-font-5x7-D-dWNIs4.otf');
-}
 
-@font-face {
-    font-family:'small' ;
-    src: url('src/assets/Satoshi-Regular.fe762acc7e97cb612805.ttf');
-}
-
-h1{
-    font-family:'big' ;
-}
 
 body{
      font-family:'big' ;
 }
 
-.unique{
-   font-family: 'unique';
-}
 
   .animate-pulse-slow {
     animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
