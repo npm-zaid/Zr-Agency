@@ -4,8 +4,7 @@
 
 @font-face {
     font-family: 'big';
-    src: url('src/assets/Brockmann-Regular-CFBdZhjj.ttf') format('truetype');
-   
+    src: url('./assets/Brockmann-Regular-CFBdZhjj.ttf') format('truetype');
 }
 
 
