@@ -12,6 +12,9 @@ import Contact from './Contact';
 import Testimonials from './Testimonials';
 import Footer from './Footer';
 import Stats from './Stats';
+ import Team from './Team';
+ import CallToAction from './CallToAction';
+ import Work from './Work';
 
 import plane from '../model/stylized_ww1_plane.glb';
 
@@ -28,9 +31,9 @@ const Model = () => {
     { id: 'third', position: { x: -5, y: -1, z: -1 }, rotation: { x: -0.3, y: 1.7, z: 0 } },
     { id: 'fourth', position: { x: 5, y: -1, z: -1 }, rotation: { x: -0.3, y: 0, z: 0.4 } },
     { id: 'fifth', position: { x: 5, y: -1.4, z: -1 }, rotation: { x: -0.3, y: -1.8, z: -0.3 } },
-    { id: 'sixth', position: { x: 0, y: 0, z: -4 }, rotation: { x: 0, y: 0, z: -0.2 } },
-    { id: 'seventh', position: { x: 0, y: 0, z: 7 }, rotation: { x: 0, y: 0, z: 0 } },
-    { id: 'eighth', position: { x: 0, y: -2, z: -3 }, rotation: { x: 0, y: 0, z: 0 } },
+       { id: 'sixth', position: { x: 0, y: -1.4, z: -3 }, rotation: { x: 1, y: 0, z: 0} },
+  { id: 'seventh', position: { x: 0, y: -2, z: -3 }, rotation: { x: 0, y: 0, z: 0 } },
+    { id: 'eighth', position: { x: 0, y: 0, z: 7 }, rotation: { x: 0, y: 0, z: 0 } },
     { id: 'nine', position: { x: 0, y: -2, z: -3 }, rotation: { x: 1, y: 0, z: 0 } },
     { id: 'ten', position: { x: 0, y: -2, z: -3 }, rotation: { x: 1, y: 0, z: 0 } },
   ];
@@ -38,25 +41,22 @@ const Model = () => {
   // Define mobile positions (compact flight path)
   const MobilePositions = [
 
-    { id: 'first', position: { x: 0, y: .8, z: -2.5 }, rotation: { x: -0.1, y: -.3, z: 0 } },
+    { id: 'first', position: { x: 0, y: .8, z: -3 }, rotation: { x: -0.1, y: -.3, z: 0 } },
     
-    { id: 'second', position: { x: -2, y: -2, z: -4.2 }, rotation: { x: -0.1, y: Math.PI / 2, z: -0.1 } },
+    { id: 'second', position: { x: -2, y: -2, z: -4.5}, rotation: { x: -0.1, y: Math.PI / 2, z: -0.1 } },
    
-    { id: 'third', position: { x: -2, y: -1.6, z: -4.2 }, rotation: { x: -0.8, y: .5, z: 0.1 } },
+    { id: 'third', position: { x: -2, y: -1.6, z: -4.5}, rotation: { x: -0.8, y: .5, z: 0.1 } },
 
-    { id: 'fourth', position: { x: 2, y: -2, z: -4.2 }, rotation: { x: -0.1, y: -Math.PI / 2, z: -0.1 } },
+    { id: 'fourth', position: { x: 2, y: -2, z: -4.5}, rotation: { x: -0.1, y: -Math.PI / 2, z: -0.1 } },
  
-    { id: 'fifth', position: { x: 2, y: -2, z: -4.2 }, rotation: { x: -0.1, y: -.3, z: -0.1 }  },
-  
-    { id: 'fifth', position:  { x: -2, y: -2, z: -4.2 }, rotation: { x: -0.1, y: 1, z: -0.2 }  },
+    { id: 'fifth', position: { x: 2, y: -2, z: -4.5}, rotation: { x: -0.1, y: -.3, z: -0.1 }  },
 
-    { id: 'sixth', position: { x: 0, y: -2, z: -3.5 }, rotation: { x: 0.1, y:0, z: 0 } },
+       { id: 'sixth', position: { x: 0, y: -2.1, z: -6 }, rotation: { x: 1, y: 0, z: 0} },
    
-    { id: 'seventh',position: { x: 0, y: -2, z: 4 }, rotation: { x: 0.1, y:0, z: 0 }  },
+   { id: 'seventh', position: { x: 0, y: -2, z: -3 }, rotation: { x: 0, y: 0, z: 0 } },
   
-    { id: 'eighth', position: { x: 0, y: -1.5, z: -3 }, rotation: { x: 0, y: 0, z: 0 } },
-    { id: 'nine', position: { x: 0, y: -1.5, z: -3 }, rotation: { x: 0.5, y: 0, z: 0 } },
-    { id: 'ten', position: { x: 0, y: -1.5, z: -3 }, rotation: { x: 0.5, y: 0, z: 0 } },
+    { id: 'eighth', position: { x: 0, y: 0, z: 5 }, rotation: { x: 0, y: 0, z: 0 } },
+
   ];
 
   // Detect if the device is mobile
@@ -243,13 +243,12 @@ const Model = () => {
       <div id="first" className="w-full min-h-screen section"><Hero/></div>
       <div id="second" className="w-full min-h-screen section"><About/></div>
       <div id="third" className="w-full min-h-screen section "><Services/></div>
-      <div id="fourth" className="w-full min-h-screen section "><Portfolio/></div>
+      <div id="fourth" className="w-full min-h-screen section "><Work/></div>
       <div id="fifth" className="w-full  section "><Stats/></div>
-      <div id="sixth" className="w-full h-screen section bg-orange-500/30"></div>
-      <div id="seventh" className="w-full h-screen section bg-indigo-500/30"></div>
-      <div id="eighth" className="w-full h-screen section bg-pink-500/30"></div>
-      <div id="nine" className="w-full h-screen section bg-teal-500/30"></div>
-      <div id="ten" className="w-full h-screen section bg-gray-500/30"></div>
+      <div id="sixth" className="w-full min-h-screen section"><Testimonials/></div>
+      <div id="seventh" className="w-full section "><CallToAction/></div>
+      <div id="eighth" className="w-full section "><Contact/></div>
+    
     </>
   );
 };

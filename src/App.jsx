@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import Lenis from '@studio-freight/lenis';
 import Navbar from './components/Navbar';
 import Model from './components/Model';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
     <div className="bg-zinc-900 overflow-hidden">
       <Navbar />
        <Model />
+        <Footer/>
       
     </div>
   );

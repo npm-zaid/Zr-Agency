@@ -1,52 +1,112 @@
-import React from 'react';
-import { Sparkles } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import { Twitter, Instagram, Linkedin, Mail, Facebook ,Copyright} from "lucide-react";
+
+// Animation variants for container
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+// Animation variants for child elements
+const childVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
 
 const Footer = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2, delayChildren: 0.3 },
-    },
-  };
+  const navLinks = [
+    { name: "Services", href: "/services" },
+    { name: "About", href: "/about" },
+    { name: "Testimonials", href: "/testimonials" },
+    { name: "Contacts", href: "/contacts" },
+    { name: "Stats", href: "/stats" },
+   
+  ];
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
+  const socialLinks = [
+    { name: "Twitter", href: "https://twitter.com", icon: <Twitter className="w-5 h-5" /> },
+    { name: "Instagram", href: "https://instagram.com", icon: <Instagram className="w-5 h-5" /> },
+    { name: "LinkedIn", href: "https://linkedin.com", icon: <Linkedin className="w-5 h-5" /> },
+    { name: "Mail", href: "", icon: <Facebook className="w-5 h-5" /> },
+  ];
 
   return (
     <motion.footer
-      className="py-10 bg-zinc-900/80 backdrop-blur-md relative"
+      className="bg-zinc-900  py-5  relative overflow-hidden"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
-      <div className="container mx-auto px-6 text-center">
-        <motion.div className="flex flex-col md:flex-row justify-between items-center gap-8" variants={containerVariants}>
-          {/* Logo */}
-          <motion.div className="flex items-center space-x-2" variants={itemVariants}>
-            <span className="text-xl font-bold tracking-wider bg-gradient-to-b from-white to-zinc-400 text-transparent bg-clip-text">
-              KrishAgency
-            </span>
-            <Sparkles className="w-5 h-5 text-[#61E4ED]" />
-          </motion.div>
+      
+      <div className="absolute inset-0 bg-gradient-to-t from-[#61E4ED]/10 to-transparent" />
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 text-center md:text-left">
+          {/* Brand Section */}
+          <div className="sm:col-span-5">
+            <h3 className="text-2xl font-bold text-white mb-4">
+              <span className="bg-gradient-to-b from-white via-white to-zinc-500 text-transparent bg-clip-text">
+                Your Agency
+              </span>
+            </h3>
+            <p className="text-gray-400 max-w-xs mx-auto md:mx-0">
+              Crafting stunning, high-performance websites that drive results and captivate audiences.
+            </p>
+          </div>
 
-          {/* Links */}
-          <motion.div className="flex flex-col md:flex-row gap-4 text-gray-400" variants={containerVariants}>
-            <motion.a href="#home" className="hover:text-[#64E3FA]" variants={itemVariants}>Home</motion.a>
-            <motion.a href="#services" className="hover:text-[#64E3FA]" variants={itemVariants}>Services</motion.a>
-            <motion.a href="#portfolio" className="hover:text-[#64E3FA]" variants={itemVariants}>Portfolio</motion.a>
-            <motion.a href="#about" className="hover:text-[#64E3FA]" variants={itemVariants}>About</motion.a>
-            <motion.a href="#contact" className="hover:text-[#64E3FA]" variants={itemVariants}>Contact</motion.a>
-          </motion.div>
+          {/* Navigation Links */}
+          <div className="sm:col-span-3">
+            <h4 className="text-lg font-semibold text-white mb-4">Explore</h4>
+            <ul className="space-y-2">
+              {navLinks.map((link, index) => (
+                <li key={index}>
+                  <a
+                    href={link.href}
+                    className="text-gray-400 hover:text-[#64E3FA] transition-colors duration-300"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          {/* Copyright */}
-          <motion.p className="text-gray-400 text-sm" variants={itemVariants}>
-            &copy; 2025 KrishAgency. All rights reserved.
-          </motion.p>
-        </motion.div>
+          
+
+          {/* Social Media Links */}
+          <div className="sm:col-span-3">
+            <h4 className="text-lg font-semibold text-white mb-4">Connect</h4>
+            <div className="flex justify-center md:justify-start gap-4">
+              {socialLinks.map((link, index) => (
+                <a
+                  key={index}
+                  href={link.href}
+                  className="text-gray-400 hover:text-[#64E3FA] transition-colors duration-300"
+                  aria-label={link.name}
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </div>
+              {/* Copyright */}
+        <div
+          className="mt-5 text-center text-gray-500 text-sm"
+        
+        >
+          <p><Copyright  className="inline h-5 w-5"/> {new Date().getFullYear()} Your Agency. All rights reserved.</p>
+        </div>
+          </div>
+        </div>
+
+      
       </div>
     </motion.footer>
   );

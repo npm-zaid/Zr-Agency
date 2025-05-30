@@ -1,133 +1,170 @@
-import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
-import SubTitle from "./SubTitle";
+import React, { useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { motion } from 'framer-motion';
+import SubTitle from './SubTitle';
 
-// Sample testimonial data
-const testimonials = [
-  {
-    quote: "This team transformed our vision into a stunning website that exceeds expectations!",
-    name: "Sarah Johnson",
-    role: "CEO, TechTrend Innovations",
-  },
-  {
-    quote: "Their expertise and creativity delivered a high-performance platform our users love.",
-    name: "Michael Chen",
-    role: "Founder, StartUp Solutions",
-  },
-  {
-    quote: "An exceptional experience! The website is both beautiful and highly functional.",
-    name: "Emily Davis",
-    role: "Marketing Director, GrowthHub",
-  },
-];
 
-const Testimonial = () => {
-  // Animation variants for the container
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
+gsap.registerPlugin(ScrollTrigger);
+
+const Testimonials = () => {
+  // Array of client testimonials
+  const clients = [
+    {
+      name: 'John Doe',
+      quote: 'Exceptional service and attention to detail!',
+      role: 'CEO, Example Corp',
     },
-  };
-
-  // Animation variants for child elements
-  const childVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+    {
+      name: 'Jane Smith',
+      quote: 'Transformed our business with their expertise.',
+      role: 'Marketing Director, Innovate Ltd',
     },
-  };
-
-  // Variants for testimonial card hover effect
-  const cardVariants = {
-    hover: {
-      scale: 1.05,
-      boxShadow: "0px 10px 20px rgba(97, 228, 237, 0.2)",
-      transition: { duration: 0.3 },
+    {
+      name: 'Alex Johnson',
+      quote: 'A game-changer for our team!',
+      role: 'Product Manager, Tech Solutions',
     },
-  };
-
-  // Variants for the ping animation (matching Hero section)
-  const pingVariants = {
-    animate: {
-      scale: [1, 1.5, 1],
-      opacity: [0.4, 0.2, 0.4],
-      transition: {
-        duration: 10,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
+    {
+      name: 'Emily Brown',
+      quote: 'Outstanding support and results.',
+      role: 'Founder, StartUp Hub',
     },
-  };
+    {
+      name: 'Michael Lee',
+      quote: 'Highly professional and reliable.',
+      role: 'CTO, FutureTech',
+    },
+    {
+      name: 'Sarah Davis',
+      quote: 'Their creativity exceeded our expectations.',
+      role: 'Creative Director, DesignWorks',
+    },
+    {
+      name: 'David Wilson',
+      quote: 'Fast and efficient service!',
+      role: 'Operations Manager, LogiCorp',
+    },
+    {
+      name: 'Laura Martinez',
+      quote: 'A pleasure to work with.',
+      role: 'HR Manager, PeopleFirst',
+    },
+    {
+      name: 'Chris Evans',
+      quote: 'Top-notch quality and support.',
+      role: 'Entrepreneur, StartX',
+    },
+    {
+      name: 'Rachel Kim',
+      quote: 'Their solutions boosted our productivity.',
+      role: 'COO, NextGen Tech',
+    },
+  ];
+
+  // Define row structure to match original sparse layout
+  const rows = [
+    [clients[0], null, clients[1], null], // Row 1: clients in col 1, 3
+    [null, clients[2], null, null],      // Row 2: client in col 2
+    [clients[3], null, null, clients[4]], // Row 3: clients in col 1, 4
+   
+  ];
+
+  useEffect(() => {
+    // Assign data-origin for testimonial cards that don't have it
+    document.querySelectorAll('.testimonial-card:not([data-origin])').forEach((card, idx) => {
+      card.setAttribute('data-origin', idx % 2 === 0 ? 'left' : 'right');
+    });
+
+    gsap.set('.testimonial-card', { scale: 0, force3D: true });
+
+    const rows = document.querySelectorAll('.row');
+    rows.forEach((row, index) => {
+      const rowCards = row.querySelectorAll('.testimonial-card');
+
+      if (rowCards.length > 0) {
+        row.setAttribute('id', `row-${index}`);
+
+        ScrollTrigger.create({
+          id: `scaleIn-${index}`,
+          trigger: row,
+          start: 'top bottom',
+          end: 'bottom bottom-=10%',
+          scrub: 1,
+          invalidateOnRefresh: true,
+          onUpdate: function (self) {
+            const progress = self.progress;
+            const easedProgress = Math.min(1, progress * 1.2);
+            const scaleValue = gsap.utils.interpolate(0, 1, easedProgress);
+
+            rowCards.forEach((card) => {
+              gsap.set(card, {
+                scale: scaleValue,
+                force3D: true,
+              });
+            });
+
+            if (progress > 0.95) {
+              gsap.set(rowCards, {
+                scale: 1,
+                force3D: true,
+              });
+            }
+          },
+          onLeave: function () {
+            gsap.set(rowCards, {
+              scale: 1,
+              force3D: true,
+            });
+          },
+        });
+      }
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((st) => st.kill()); // Cleanup on unmount
+    };
+  }, []);
 
   return (
-    <motion.section
-      id="testimonials"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-zinc-900"
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-    >
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <motion.div
-          className="absolute top-1/4 left-0 w-96 h-96 bg-[#61E4ED]/60 rounded-full blur-3xl"
-          variants={pingVariants}
-          animate="animate"
-        />
-        <motion.div
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-[#61E4ED]/80 via-zinc-900/50 to-transparent rounded-full blur-3xl"
-          initial={{ opacity: 0.3, scale: 0.8 }}
-          animate={{ opacity: 0.5, scale: 1 }}
-          transition={{ duration: 2, ease: "easeOut", repeat: Infinity, repeatType: "reverse" }}
-        />
-      </div>
+    <div className="relative h-full py-10">
+    
 
       <div className="container mx-auto px-6 text-center relative z-10">
         {/* Section Title */}
-       
-          <SubTitle title="Our Clients" />
-        
-        <motion.h2
-          className="text-4xl md:text-5xl font-bold bg-gradient-to-b from-white to-zinc-400 text-transparent bg-clip-text mb-12"
-          variants={childVariants}
-        >
-          Testimonials
-        </motion.h2>
+        <SubTitle title="Our Testimonials" />
+        <h2 className="text-4xl md:text-5xl mt-6 font-bold bg-gradient-to-b from-white via-white to-zinc-400 text-transparent bg-clip-text mb-12">
+          What Our Clients Say
+        </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              className="relative bg-zinc-800/80 p-6 rounded-lg glass-card border border-[#61E4ED]/20"
-              variants={childVariants}
-              whileHover="hover"
-              custom={index}
-            >
-              <Quote className="w-8 h-8 text-[#61E4ED]/60 mb-4 mx-auto" />
-              <p className="text-[1vw] text-gray-300 leading-relaxed mb-4">
-                "{testimonial.quote}"
-              </p>
-              <div className="text-center">
-                <p className="text-[1.2vw] font-semibold bg-gradient-to-b from-[#61E4ED] to-[#64E3FA]/50 text-transparent bg-clip-text">
-                  {testimonial.name}
-                </p>
-                <p className="text-[1vw] text-gray-400">{testimonial.role}</p>
+        {/* Testimonials Grid */}
+        {rows.map((row, rowIndex) => (
+          <div key={`row-${rowIndex}`} className="row flex flex-wrap justify-center gap-4 max-w-6xl mx-auto">
+            {row.map((client, colIndex) => (
+              <div key={`col-${rowIndex}-${colIndex}`} className="col w-full sm:w-1/2 lg:w-1/4">
+                {client ? (
+                 <div
+  className="testimonial-card relative bg-zinc-800/50 backdrop-blur-sm border border-zinc-700/50 rounded-lg overflow-hidden p-4"
+>
+  <p className="text-lg italic mb-4 text-gray-400">"{client.quote}"</p>
+  <h3 className="text-2xl font-semibold text-white mb-2">{client.name}</h3>
+  <p className="text-sm text-gray-400">{client.role}</p>
+
+  <motion.div
+    className="absolute bottom-0 right-0 h-full w-full bg-gradient-to-tl from-[#61E4ED]/70 via-zinc-900/30 to-transparent rounded-lg blur-2xl"
+    initial={{ opacity: 0.3, scale: 0.9 }}
+    animate={{ opacity: 0.5, scale: 1 }}
+    transition={{ duration: 2, ease: "easeOut", repeat: Infinity, repeatType: "reverse" }}
+  />
+</div>
+                ) : null}
               </div>
-              <div className="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-[#61E4ED]/30 to-transparent rounded-full blur-xl -z-10" />
-            </motion.div>
-          ))}
-        </div>
-াহ
-
+            ))}
+          </div>
+        ))}
       </div>
-    </motion.section>
+    </div>
   );
 };
 
-export default Testimonial;
+export default Testimonials;

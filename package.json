@@ -20,6 +20,7 @@
     "lucide-react": "^0.511.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-parallax-tilt": "^1.7.296",
     "styled-components": "^6.1.18",
     "tailwindcss": "^4.1.7",
     "three": "^0.176.0"

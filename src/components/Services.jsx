@@ -2,6 +2,7 @@ import { Code, Palette, Server } from "lucide-react";
 import SubTitle from "./SubTitle";
 import SpotlightCard from "./SpotlightCard";
 import { motion } from "framer-motion";
+import Tilt from 'react-parallax-tilt';
 
 
 const Services = () => {
@@ -28,6 +29,7 @@ const Services = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* Service Card 1: Full-Stack Development */}
           <div>
+            <Tilt>
             <SpotlightCard className="bg-zinc-800/50 sm:h-[50vh] backdrop-blur-sm border-zinc-700/50" spotlightColor="rgba(97, 228, 237, 0.25)">
               <Code className="w-12 h-12 text-[#61E4ED] mb-4 mx-auto" />
               <h3 className="text-2xl font-semibold text-white mb-2">Full-Stack Development</h3>
@@ -35,10 +37,12 @@ const Services = () => {
                 Craft robust, scalable web applications with seamless front-end and back-end integration using modern frameworks and technologies.
               </p>
             </SpotlightCard>
+            </Tilt>
           </div>
 
           {/* Service Card 2: UI/UX Design */}
           <div>
+            <Tilt>
             <SpotlightCard className="bg-zinc-800/50 sm:h-[50vh] backdrop-blur-sm border-zinc-700/50" spotlightColor="rgba(97, 228, 237, 0.25)">
               <Palette className="w-12 h-12 text-[#61E4ED] mb-4 mx-auto" />
               <h3 className="text-2xl font-semibold text-white mb-2">UI/UX Design</h3>
@@ -46,10 +50,12 @@ const Services = () => {
                 Design intuitive, visually stunning interfaces that prioritize user experience and engagement across all devices.
               </p>
             </SpotlightCard>
+            </Tilt>
           </div>
 
           {/* Service Card 3: API Development */}
           <div>
+             <Tilt>
             <SpotlightCard className="bg-zinc-800/50 sm:h-[50vh] backdrop-blur-sm border-zinc-700/50" spotlightColor="rgba(97, 228, 237, 0.25)">
               <Server className="w-12 h-12 text-[#61E4ED] mb-4 mx-auto" />
               <h3 className="text-2xl font-semibold text-white mb-2">API Development</h3>
@@ -57,6 +63,7 @@ const Services = () => {
                 Build secure, efficient APIs to power your applications, enabling seamless data integration and functionality.
               </p>
             </SpotlightCard>
+            </Tilt>
           </div>
         </div>
       </div>
