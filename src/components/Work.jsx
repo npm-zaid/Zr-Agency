@@ -6,15 +6,26 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 
+import pic1 from '../assets/Screenshot (626).png'
+import pic2 from '../assets/Screenshot (627).png'
+import pic3 from '../assets/Screenshot (628).png'
+import pic4 from '../assets/Screenshot (629).png'
+import pic5 from '../assets/Screenshot (630).png'
+import pic6 from '../assets/Screenshot (631).png'
+import pic7 from '../assets/Screenshot (632).png'
+
+
+
 const Work = () => {
 
   const projects = [
-    { id: 1, category: "E-Commerce", name: "Way Fields", year: "2024", image: "https://framerusercontent.com/images/0DBAix0ysUgnw6WhKOms5oGcN8.png?scale-down-to=1024" },
-    { id: 2, category: "E-Commerce", name: "Raven Studio", year: "2025", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" },
-    { id: 3, category: "Fashion", name: "Trend Vogue", year: "2023", image: "https://framerusercontent.com/images/Aalew56kBlkyaHQYY3wkFNANc.svg" },
-    { id: 4, category: "Tech", name: "Innovate Hub", year: "2024", image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" },
-    { id: 5, category: "Lifestyle", name: "Urban Nest", year: "2025", image: "https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" },
-    { id: 6, category: "Fitness", name: "Fit Pulse", year: "2023", image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" },
+    { id: 1, category: "E-Commerce", name: "Clothix", year: "2024", image: pic1 ,link:'https://clothix-sand.vercel.app/'},
+    { id: 2, category: "Real Estate", name: "Realistic", year: "2024", image:pic2 ,link:'https://realistic-theta.vercel.app/'},
+    { id: 3, category: "E-Commerce", name: "Admin Dashboard", year: "2024", image: pic3 ,link:'https://clothix-admin-eight.vercel.app/' },
+    { id: 4, category: "Techno", name: "The Apollo Project", year: "2025", image: pic4 ,link:'https://the-apollo-evo.vercel.app/'},
+    { id: 5, category: "Agency", name: "Ochi", year: "2024", image: pic5 ,link:'https://npm-zaid.github.io/OCHI-DESIGN/'},
+    { id: 6, category: "LifeStyle", name: "Fizzi", year: "2025", image: pic6 ,link:'https://fizzi-demo.vercel.app/'},
+        { id: 6, category: "Business", name: "Erp Software", year: "2025", image: pic7 ,link:'https://erp-10.vercel.app/'},
   ];
 
   useEffect(() => {
@@ -93,17 +104,21 @@ const Work = () => {
                 </h2>
               </div>
         {projects.map((project) => (
-          <div
+          
+          <a
             key={project.id}
-            className="card bg-zinc-800/80 p-4 sm:w-[30vw] sm:h-[60vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 group glass-card rounded-2xl overflow-hidden shadow-lg"
+            href={project.link}
+            target='_blank'
+            className="card inline-block bg-zinc-800/80 p-3 sm:w-[30vw] w-[60vw] sm:h-[55vh] h-[40vh] overflow-hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 group glass-card rounded-2xl shadow-lg"
           >
+            <div className='overflow-hidden rounded-xl'>
             <div className="relative">
               <img
                 src={project.image}
                 alt={project.name}
-                className="w-full sm:h-[30vh] h-[20vh] object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full sm:h-[30vh] h-[20vh] object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#61E4ED]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <button className="flex items-center text-nowrap gap-2 px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-colors">
                   <span className='sm:block hidden'>View Now</span>
@@ -111,6 +126,7 @@ const Work = () => {
                
                 </button>
               </div>
+            </div>
             </div>
             <div className="p-6 flex sm:justify-between sm:items-center">
               <div>
@@ -123,9 +139,10 @@ const Work = () => {
                   </span>
                 </h4>
                 <p className="text-gray-400 text-sm">{project.year}</p>
+                     <div className="absolute inset-0 bg-gradient-to-t from-[#61E4ED]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             </div>
-          </div>
+          </a>
         ))}
       </section>
 
