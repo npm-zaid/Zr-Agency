@@ -7,10 +7,20 @@
     src: url('./assets/Brockmann-Regular-CFBdZhjj.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'logo';
+    src: url('./assets/corruptor.clean-ldr-regular.ttf') format('truetype');
+}
+
 
 
 body{
      font-family:'big' ;
+}
+
+.logo{
+    font-family: 'logo';
+
 }
 
 

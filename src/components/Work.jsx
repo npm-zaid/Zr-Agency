@@ -94,7 +94,7 @@ const Work = () => {
     <div>
      
 
-      <section className='h-screen sticky--cards bg-zinc-900 relative overflow-hidden'>
+      <section className='h-screen sticky--cards pt-3 bg-zinc-900 relative overflow-hidden'>
         <div className="text-center mb-16">
                 <SubTitle title="Portfolio" />
                 <h2 className="text-4xl md:text-5xl font-bold text-white my-6">

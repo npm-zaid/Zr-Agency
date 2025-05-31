@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Twitter, Instagram, Linkedin, Mail, Facebook ,Copyright} from "lucide-react";
+import logo from '../assets/logo.png';
 
 // Animation variants for container
 const containerVariants = {
@@ -12,15 +13,6 @@ const containerVariants = {
   },
 };
 
-// Animation variants for child elements
-const childVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: "easeOut" },
-  },
-};
 
 const Footer = () => {
   const navLinks = [
@@ -52,12 +44,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 text-center md:text-left">
           {/* Brand Section */}
           <div className="sm:col-span-5">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              <span className="bg-gradient-to-b from-white via-white to-zinc-500 text-transparent bg-clip-text">
-                Your Agency
-              </span>
-            </h3>
-            <p className="text-gray-400 max-w-xs mx-auto md:mx-0">
+        <div className="flex items-center ">
+                   <img src={logo} alt="Logo" className="sm:w-[4.5vw] w-[15vw]" />
+                   <span className="sm:text-xl  text-2xl font-bold tracking-wider bg-gradient-to-b from-white to-zinc-400 text-transparent bg-clip-text">
+                     ZaidCraft Studio
+                   </span>
+                 </div>
+            <p className="text-gray-400 max-w-xs mx-auto md:mx-0 sm:mt-0 mt-4">
               Crafting stunning, high-performance websites that drive results and captivate audiences.
             </p>
           </div>

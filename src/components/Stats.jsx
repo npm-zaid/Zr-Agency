@@ -13,9 +13,9 @@ const Stats = () => {
   const [values, setValues] = useState(["000", "000", "000", "000"]);
 
   const stats = [
-    { label: "Happy Clients", unit: "+", target: 120, icon: <Smile className="w-8 h-8 text-green-400" /> },
-    { label: "Projects Completed", unit: "", target: 450, icon: <TrendingUp className="w-8 h-8 text-sky-400" /> },
-    { label: "Websites Optimized", unit: "+", target: 300, icon: <Globe className="w-8 h-8 text-yellow-400" /> },
+    { label: "Happy Clients", unit: "+", target: 30, icon: <Smile className="w-8 h-8 text-green-400" /> },
+    { label: "Projects Completed", unit: "", target: 20, icon: <TrendingUp className="w-8 h-8 text-sky-400" /> },
+    { label: "Websites Optimized", unit: "+", target: 50, icon: <Globe className="w-8 h-8 text-yellow-400" /> },
     { label: "Lines of Code", unit: "+", target: 1000000, icon: <Code2 className="w-8 h-8 text-purple-400" /> },
   ];
 
