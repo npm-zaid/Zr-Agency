@@ -50,7 +50,7 @@ const Footer = () => {
                      ZaidCraft Studio
                    </span>
                  </div>
-            <p className="text-gray-400 max-w-xs mx-auto md:mx-0 sm:mt-0 mt-4">
+            <p className="text-gray-400 max-w-xs mx-auto md:mx-0  mt-4">
               Crafting stunning, high-performance websites that drive results and captivate audiences.
             </p>
           </div>
@@ -91,10 +91,10 @@ const Footer = () => {
             </div>
               {/* Copyright */}
         <div
-          className="mt-5 text-center text-gray-500 text-sm"
+          className="mt-5 text-gray-500 text-sm "
         
         >
-          <p><Copyright  className="inline h-5 w-5"/> {new Date().getFullYear()} Your Agency. All rights reserved.</p>
+          <p className=" text-nowrap"><Copyright  className="inline h-5 w-5"/> {new Date().getFullYear()} ZaidCraft Studio. All rights reserved.</p>
         </div>
           </div>
         </div>

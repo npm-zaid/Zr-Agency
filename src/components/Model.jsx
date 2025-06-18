@@ -19,6 +19,7 @@ import CallToAction from './CallToAction';
 import Work from './Work';
 
 import plane from '../model/stylized_ww1_plane.glb';
+import Slider from './Slider';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -189,6 +190,7 @@ const Model = () => {
 
       <div id="first" className="w-full min-h-screen section"><Hero /></div>
       <div id="second" className="w-full min-h-screen section"><About /></div>
+    
       <div id="third" className="w-full min-h-screen section"><Services /></div>
       <div id="fourth" className="w-full min-h-screen section"><Work /></div>
       <div id="fifth" className="w-full section"><Stats /></div>

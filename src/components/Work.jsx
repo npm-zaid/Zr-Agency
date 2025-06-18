@@ -13,24 +13,26 @@ import pic4 from '../assets/Screenshot (629).png'
 import pic5 from '../assets/Screenshot (630).png'
 import pic6 from '../assets/Screenshot (631).png'
 import pic7 from '../assets/Screenshot (632).png'
+import pic8 from '../assets/rcb.png'
 
 
 
 const Work = () => {
 
   const projects = [
-    { id: 1, category: "E-Commerce", name: "Clothix", year: "2024", image: pic1 ,link:'https://clothix-sand.vercel.app/'},
+    { id: 1, category: "E-Commerce", name: "Clothix", year: "2025", image: pic1 ,link:'https://clothix-sand.vercel.app/'},
     { id: 2, category: "Real Estate", name: "Realistic", year: "2024", image:pic2 ,link:'https://realistic-theta.vercel.app/'},
     { id: 3, category: "E-Commerce", name: "Admin Dashboard", year: "2024", image: pic3 ,link:'https://clothix-admin-eight.vercel.app/' },
     { id: 4, category: "Techno", name: "The Apollo Project", year: "2025", image: pic4 ,link:'https://the-apollo-evo.vercel.app/'},
     { id: 5, category: "Agency", name: "Ochi", year: "2024", image: pic5 ,link:'https://npm-zaid.github.io/OCHI-DESIGN/'},
     { id: 6, category: "LifeStyle", name: "Fizzi", year: "2025", image: pic6 ,link:'https://fizzi-demo.vercel.app/'},
-        { id: 6, category: "Business", name: "Erp Software", year: "2025", image: pic7 ,link:'https://erp-10.vercel.app/'},
+        { id: 7, category: "Business", name: "Erp Software", year: "2025", image: pic7 ,link:'https://erp-10.vercel.app/'},
+        { id: 8, category: "Sports", name: "RCB Tribute Website", year: "2025", image: pic8, link:'https://rcb-2025.vercel.app'}
   ];
 
   useEffect(() => {
     const cards = gsap.utils.toArray(".card");
-    const rotations = [-12, 10, -5, 5, -5, 15];
+    const rotations = [-12, 10, -5, 5, -5, 15, -10, 5];
 
     cards.forEach((card, index) => {
       gsap.set(card, {

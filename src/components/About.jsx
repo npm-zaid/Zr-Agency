@@ -31,7 +31,7 @@ const About = () => {
   }, []);
 
   const paragraphs = [
-    "We are a passionate team at DevCraft, dedicated to transforming your digital vision into reality. Our journey began with a simple goal: to create stunning, high-performance websites that captivate audiences and drive meaningful results.",
+    "We are a passionate team at ZaidCraftStudio, dedicated to transforming your digital vision into reality. Our journey began with a simple goal: to create stunning, high-performance websites that captivate audiences and drive meaningful results.",
     "With expertise in full-stack development, UI/UX design, and API integration, we craft tailored solutions to meet your unique needs. Partner with us to bring your ideas to life with creativity, precision, and innovation.",
     "Our mission is to empower businesses with exceptional digital experiences, blending creativity and technology to deliver solutions that inspire and succeed.",
   ];
