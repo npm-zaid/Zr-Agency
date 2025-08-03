@@ -37,7 +37,9 @@ const About = () => {
   ];
 
   return (
-    <div className="relative py-10 h-full overflow-hidden">
+    <div 
+  
+  className="relative py-10 h-full overflow-hidden">
       {/* Enhanced background effect */}
       <div className="absolute inset-0">
         <motion.div

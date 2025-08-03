@@ -6,50 +6,65 @@ import gsap from 'gsap';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const navRef = useRef(null); // Reference for navbar element
+  const navRef = useRef(null);
+  const linkRefs = useRef([]);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'About', href: '#about' },
+    { name: 'Home', href: '#first' },
+    { name: 'Services', href: '#third' },
+    { name: 'Work', href: '#fourth' },
+    { name: 'About', href: '#second' },
   ];
 
-  // GSAP scroll animation logic
+  // Scroll animation logic
   useEffect(() => {
     let prevScrollY = window.scrollY;
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
-      if (currentScrollY > prevScrollY) {
-        // Scroll down: hide navbar
-        gsap.to(navRef.current, {
-          y: '-100%',
-          duration: 1,
-          ease: 'power3.out',
-        });
-      } else {
-        // Scroll up: show navbar
-        gsap.to(navRef.current, {
-          y: '0%',
-          duration: 1,
-          ease: 'power3.out',
-        });
-      }
-
+      gsap.to(navRef.current, {
+        y: currentScrollY > prevScrollY ? '-100%' : '0%',
+        duration: 1,
+        ease: 'power3.out',
+      });
       prevScrollY = currentScrollY;
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Hover animation for links
+  useEffect(() => {
+    linkRefs.current.forEach((link) => {
+      if (!link) return;
+      const enter = () => {
+        gsap.to(link, {
+          scale: 1.2,
+          y: -5,
+          color: '#64E3FA',
+          duration: 0.3,
+          ease: 'power2.out',
+        });
+      };
+      const leave = () => {
+        gsap.to(link, {
+          scale: 1,
+          y: 0,
+          color: '#9ca3af', // gray-400
+          duration: 0.3,
+          ease: 'power2.out',
+        });
+      };
+      link.addEventListener('mouseenter', enter);
+      link.addEventListener('mouseleave', leave);
+      return () => {
+        link.removeEventListener('mouseenter', enter);
+        link.removeEventListener('mouseleave', leave);
+      };
+    });
+  }, []);
+
   return (
-    <nav
-      ref={navRef}
-      className="fixed w-full top-0 z-50 backdrop-blur-md "
-    >
+    <nav ref={navRef} className="fixed w-full top-0 z-50 backdrop-blur-md">
       <div className="container mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -62,11 +77,12 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-400 hover:bg-gradient-to-b hover:from-[#64E3FA] hover:to-[#64E3FA]/50 hover:text-transparent hover:bg-clip-text"
+                ref={(el) => (linkRefs.current[index] = el)}
+                className="text-gray-400 transition-all duration-300"
               >
                 {item.name}
               </a>
@@ -74,7 +90,7 @@ const Navbar = () => {
             <Button title={'Contact'} />
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle */}
           <button
             className="md:hidden text-gray-400 focus:outline-none"
             onClick={() => setIsOpen(!isOpen)}
@@ -97,7 +113,7 @@ const Navbar = () => {
                   {item.name}
                 </a>
               ))}
-              <Button  title='Contact'/>
+              <Button title="Contact" />
             </div>
           </div>
         )}

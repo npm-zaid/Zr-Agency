@@ -14,6 +14,7 @@ import pic5 from '../assets/Screenshot (630).png'
 import pic6 from '../assets/Screenshot (631).png'
 import pic7 from '../assets/Screenshot (632).png'
 import pic8 from '../assets/rcb.png'
+import pic9 from '../assets/Screenshot (676).png'
 
 
 
@@ -27,12 +28,15 @@ const Work = () => {
     { id: 5, category: "Agency", name: "Ochi", year: "2024", image: pic5 ,link:'https://npm-zaid.github.io/OCHI-DESIGN/'},
     { id: 6, category: "LifeStyle", name: "Fizzi", year: "2025", image: pic6 ,link:'https://fizzi-demo.vercel.app/'},
         { id: 7, category: "Business", name: "Erp Software", year: "2025", image: pic7 ,link:'https://erp-10.vercel.app/'},
-        { id: 8, category: "Sports", name: "RCB Tribute Website", year: "2025", image: pic8, link:'https://rcb-2025.vercel.app'}
+        { id: 8, category: "Sports", name: "RCB Tribute Website", year: "2025", image: pic8, link:'https://rcb-2025.vercel.app'},
+
+        { id: 9, category: "photography", name: "Captured", year: "2025", image: pic9, link:'https://captured-0.vercel.app/'},
+
   ];
 
   useEffect(() => {
     const cards = gsap.utils.toArray(".card");
-    const rotations = [-12, 10, -5, 5, -5, 15, -10, 5];
+    const rotations = [-12, 10, -5, 5, -5, 15, -10,8, 0];
 
     cards.forEach((card, index) => {
       gsap.set(card, {
@@ -93,10 +97,11 @@ const Work = () => {
   }, []);
 
   return (
-    <div>
+  
      
 
-      <section className='h-screen sticky--cards pt-3 bg-zinc-900 relative overflow-hidden'>
+      <section className='h-screen sticky--cards pt-3 bg-zinc-900 relative overflow-hidden'
+      id='work'>
         <div className="text-center mb-16">
                 <SubTitle title="Portfolio" />
                 <h2 className="text-4xl md:text-5xl font-bold text-white my-6">
@@ -149,7 +154,7 @@ const Work = () => {
       </section>
 
      
-    </div>
+  
   );
 };
 

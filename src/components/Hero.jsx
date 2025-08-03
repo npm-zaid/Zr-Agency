@@ -53,7 +53,6 @@ const Hero = () => {
 
   return (
     <motion.section
-      id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden bg-zinc-900"
       initial="hidden"
       animate="visible"

@@ -1,0 +1,143 @@
+@font-face {
+    font-family: 'one';
+       src: url('./assets/outward-round.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'two';
+       src: url('./assets/Brockmann-Regular-CFBdZhjj.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'three';
+       src: url('./assets/outward-round.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'four';
+       src: url('./assets/outward-round.ttf') format('truetype');
+}
+
+.hero-text{
+    font-family: 'one';
+    
+}
+body {
+	margin: 0;
+	--color-text: #a5a5a5;
+	--color-bg: #191613;
+	--color-link: #4DE3F2;
+	--color-link-hover: #fff;
+	--color-text-circle-1: #5bc9df62;
+	--color-text-circle-2: #5bc9df62;
+	--color-text-circle-3: #5bc9df62;
+	--color-text-circle-4: #5bc9df62;
+	--font-circle-1: one, sans-serif;
+	--font-weight-circle-1: 300;
+	--font-circle-2: one, serif;
+	--font-weight-circle-2: 400;
+	--font-circle-3: one, sans-serif;
+	--font-weight-circle-3: 400;
+	--font-circle-4: one, serif;
+	--font-weight-circle-4: 300;
+	--color-button: #4DE3F2;
+	--color-text-button: #1d1812;
+	--dim-button: 90px;
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	font-family: tenon, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.circles {
+	pointer-events: none;
+	position: fixed;
+	 --dim: 100vmin;
+	width: var(--dim);
+	height: var(--dim);
+	top: calc(50% - var(--dim) / 2 );
+	left: calc(50% - var(--dim) / 2 );
+}
+
+.demo-3 .circles {
+	--dim: 206vmin;
+}
+
+.circles__text {
+	text-transform: uppercase;
+	transform-origin: 900px 900px;
+	will-change: transform, opacity;
+}
+
+.circles__text--1 {
+	font-size: 45vmin;
+	
+	font-family: var(--font-circle-1);
+	font-weight: var(--font-weight-circle-1);
+	fill: var(--color-text-circle-1);
+}
+
+.circles__text--2 {
+	font-size: 16vmin;
+	
+	font-family: var(--font-circle-2);
+	font-weight: var(--font-weight-circle-2);
+	fill: var(--color-text-circle-2);
+}
+
+.circles__text--3 {
+	font-size:20vmin;
+	font-family: var(--font-circle-3);
+	font-weight: var(--font-weight-circle-3);
+	fill: var(--color-text-circle-3);
+}
+
+.circles__text--4 {
+	font-size: 15vmin;
+	
+	font-family: var(--font-circle-4);
+	font-weight: var(--font-weight-circle-4);
+	fill: var(--color-text-circle-4);
+}
+
+
+.enter {
+	display: block;
+	border: 0;
+	width: var(--dim-button);
+	height: var(--dim-button);
+	position: absolute;
+	left: calc(50% - var(--dim-button) / 2 );
+	top: calc(50% - var(--dim-button) / 2 );
+	font: inherit;
+	font-weight: 500;
+	cursor: pointer;
+	background: none;
+	color: var(--color-text-button);
+	padding: 0;
+}
+
+.enter:focus,
+.enter:hover,
+.enter:active {
+	outline: none;
+}
+
+.enter__bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background: var(--color-button);
+}
+
+.enter__text {
+	position: relative;
+}
+
+.js .enter {
+	opacity: 0;
+}

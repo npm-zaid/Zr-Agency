@@ -9,7 +9,7 @@ const Services = () => {
 
 
   return (
-    <div className="relative h-full py-10">
+    <div className="relative h-full py-10" >
       {/* Background Effects */}
         <motion.div
                  className="absolute -bottom-10 right-0 w-[500px] h-[500px] bg-gradient-to-r from-[#61E4ED]/80 via-zinc-900/50 to-transparent rounded-full blur-3xl"

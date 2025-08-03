@@ -41,7 +41,8 @@ const Contact = () => {
   };
 
   return (
-    <div className="relative    py-10 flex flex-col justify-center overflow-hidden">
+    <div className="relative  py-10 flex flex-col justify-center overflow-hidden"
+    >
       {/* Enhanced background effect matching About section */}
       <div className="absolute inset-0">
         <motion.div

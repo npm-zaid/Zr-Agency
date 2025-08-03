@@ -4,9 +4,9 @@ import styled from 'styled-components';
 const Button = ({title}) => {
   return (
     <StyledWrapper>
-      <button className="uiverse">
+      <button  href={'#eighth'} className="uiverse">
         <div className="wrapper">
-          <span className='uppercase '>{title}</span>
+          <span className='uppercase'>{title}</span>
           <div className="circle circle-12" />
           <div className="circle circle-11" />
           <div className="circle circle-10" />
